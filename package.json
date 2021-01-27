@@ -1,5 +1,5 @@
 {
-  "name": "@reportportal/agent-js-codecept",
+  "name": "@gamelearn/agent-js-codecept",
   "version": "0.2.3",
   "description": "Reportportal plugin for Codecept JS tests",
   "repository": {
