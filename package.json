@@ -21,7 +21,7 @@
   "homepage": "https://github.com:gamelearn/agent-js-codecept#readme",
   "main": "index.js",
   "dependencies": {
-    "@reportportal/client-javascript": "^5.0.2"
+    "@gamelearn/client-javascript": "^5.0.2"
   },
   "scripts": {
     "test": "mocha test/acceptance_test.js --timeout 6000"
