@@ -229,7 +229,8 @@ module.exports = (config) => {
     // await recorder.promise;
     debug('Finishing launch...');
     if (suiteObj) {
-      rpClient.finishTestItem(suiteObj.tempId, {
+      // console.dir(launchObj)
+      rpClient.finishTestItem(launchObj.tempId, {
         status: suiteStatus,
       }).promise;
     }
@@ -280,7 +281,6 @@ module.exports = (config) => {
       const launch = rpClient.finishLaunch(launchObj.tempId, {
         status: launchStatus,
       });
-
       const response = await launch.promise;
 
       reportUrl = response.link;
