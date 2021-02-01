@@ -6,6 +6,7 @@ const { event, recorder, output, container } = codeceptjs;
 
 const helpers = container.helpers();
 let helper;
+let testTrueId;
 
 const rp_FAILED = 'FAILED';
 const rp_PASSED = 'PASSED';
@@ -116,6 +117,7 @@ module.exports = (config) => {
       testObj = startTestItem(test.title, rp_TEST, suiteObj.tempId);
       test.tempId = testObj.tempId;
       failedStep = null;
+      testTrueId = test.tempId;
       debug(`${testObj.tempId}: The testId '${test.title}' is started.`);
     })
   });
@@ -167,16 +169,16 @@ module.exports = (config) => {
 
     if (!test.tempId) return;
 
-    debug(`${test.tempId}: Test '${test.title}' failed.`);
+    debug(`${testTrueId}: Test '${test.title}' failed.`);
 
     if (!failedStep) {
-      await rpClient.sendLog(test.tempId, {
+      await rpClient.sendLog(testTrueId, {
         level: 'ERROR',
         message: `${err.stack}`,
       }).promise;      
     }
 
-    rpClient.finishTestItem(test.tempId, {
+    rpClient.finishTestItem(testTrueId, {
       endTime: test.endTime || rpClient.helpers.now(),
       status: rp_FAILED,
       message: `${err.stack}`,
