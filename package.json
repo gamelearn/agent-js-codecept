@@ -1,6 +1,6 @@
 {
   "name": "@gamelearn/agent-js-codecept",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Reportportal plugin for Codecept JS tests",
   "repository": {
     "type": "git",
