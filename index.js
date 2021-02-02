@@ -186,8 +186,8 @@ module.exports = (config) => {
   });
 
   event.dispatcher.on(event.test.passed, (test, err) => {
-    debug(`${test.tempId}: Test '${test.title}' passed.`);
-    rpClient.finishTestItem(test.tempId, {
+    debug(`${testTrueId}: Test '${test.title}' passed.`);
+    rpClient.finishTestItem(testTrueId, {
       endTime: test.endTime || rpClient.helpers.now(),
       status: rp_PASSED,
     });    
